@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    background-color: #070267 !important;
+    min-height: 100vh;
+}
+
+.navbar-brand {
+    font-size: 32px;
+    font-weight: bold !important;
+    font-family: 'Open Sans';
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    padding: 18px;
+}
+
+.container {
+    background-color: #070267 !important;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-fluid {}
+
+.card {
+    padding: 12px;
+    width: 24rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Open Sans';
+    align-items: center;
+    background-color: #FFDE02;
+    border-radius: 62px;
+    cursor: pointer;
+}
+
+.card img {
+    padding-top: 10px;
+    border-radius: 20%;
+    width: 65%;
+}
+
+.card-text {
+    font-size: 18px;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.list-group {
+    font-weight: 700;
+}
+
+.question-footer {
+    display: flex;
+    justify-content: space-between !important;
+    align-items: center;
+    gap: 6px;
+    border-top: 2px solid rgb(0,0,0,0.5);
+    padding-top: 10px;
+}
+
+.question {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+h5 {
+    font-size: 22px;
+    text-decoration: overline;
+    color: #C31756;
+}
+
+p {
+    color: #C31756;
+}
+
+
+.px-2 {
+    padding-left: ($spacer * .3) !important;
+    padding-right: ($spacer * .3) !important;
+}
+
+.quiz-answer:hover {
+    background-color: rgba(0,0,0,0.1);
+}

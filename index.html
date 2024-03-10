@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="/img/quiz.png">
+    <script src="script.js"></script>
+
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <title>Quizapp</title>
+
+
+</head>
+
+<body onload="init()">
+
+
+    <!--Navbar-->
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Quizapp</a>
+        </div>
+    </nav>
+
+
+    <!--Card-->
+    <div class="container">
+
+        <div class="card">
+            <img src="./img/quiz-card.jpg" class="card-img-top rounded-circle">
+
+            <div class="card-body">
+                <h5 class="card-title" id="questiontext">Frage</h5>
+                
+            </div>
+
+            <div class="card mb-2 border-5 border-danger quiz-answer" onclick="answer('answer_1')">
+                <div class="card-body" id="answer_1">
+                    Antwort
+                </div>
+            </div>
+
+            <div class="card mb-2 border-5 border-warning quiz-answer" onclick="answer('answer_2')">
+                <div class="card-body" id="answer_2">
+                    Antwort
+                </div>
+            </div>
+
+            <div class="card mb-2 border-5 border-danger  quiz-answer" onclick="answer('answer_3')" >
+                <div class="card-body" id="answer_3">
+                    Antwort
+                </div>
+            </div>
+
+            <div class="card mb-2 border-5 border-warning quiz-answer" onclick="answer('answer_4')" >
+                <div class="card-body" id="answer_4">
+                    Antwort
+                </div>
+            </div>
+
+            <div class="question-footer mt-5">
+                <span>
+                    <b>1</b>von<b id="dynamic">5</b>Fragen
+                </span>
+
+                <button class="btn btn-primary">Nächste Frage</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
