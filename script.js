@@ -1,5 +1,6 @@
 let questions = [
     {
+        //Frage 1
         "question": "Wer war Nikola Tesla?",
         "answer_1": "Ein Bauer",
         "answer_2": "Ein Elektroingenieur und Erfinder",
@@ -9,6 +10,7 @@ let questions = [
     },
 
     {
+        //Frage 2
         "question": "Wie lange war Frau Merkel im Amt?",
         "answer_1": "4 Jahre",
         "answer_2": "8 Jahre",
@@ -19,6 +21,7 @@ let questions = [
 
 
     {
+        //Frage 3
         "question": "Wer hat Javascript erfunden?",
         "answer_1": "Ottmar Hitzfeld",
         "answer_2": "Karl-Heinz Rummenigge",
@@ -30,6 +33,7 @@ let questions = [
 
 
     {
+        //Frage 4
         "question": "Wer hat Angular erfunden?",
         "answer_1": "Apple",
         "answer_2": "Google",
@@ -63,7 +67,7 @@ function answer(selection) {
     let question = questions[currentQuestion]; //
     console.log('Selected answer is', selection) //
     let selectedQuestionNumber = selection.slice(-1); //
-    console.log('SelectedQuestionNumber is', selectedQuestionNumber); //
+    console.log('SelectedQuestionNumber is', selectedQuestionNumber); // wird in der Konsole angezeigt
     console.log('Current questiion is ', question['right_answer']); //
 
     if(selectedQuestionNumber == question['right_answer']) { //
@@ -74,6 +78,6 @@ function answer(selection) {
     } else {
         console.log('Falsche Antwort!!') //
         document.getElementById(selection).classList.add('bg-danger');
-        document.getElementById(selection) .classList.add('text-white');
+        document.getElementById(selection).classList.add('text-white');
     }
 }
