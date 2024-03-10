@@ -88,3 +88,23 @@ p {
 .quiz-answer:hover {
     background-color: rgba(0,0,0,0.1);
 }
+
+#answer_1 {
+    font-weight: bold;
+}
+
+#answer_2 {
+    font-weight: bold;
+}
+
+#answer_3 {
+    font-weight: bold;
+}
+
+#answer_4 {
+    font-weight: bold;
+}
+
+.bg-success {
+    color: white;
+}

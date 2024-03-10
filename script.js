@@ -74,5 +74,6 @@ function answer(selection) {
     } else {
         console.log('Falsche Antwort!!') //
         document.getElementById(selection).classList.add('bg-danger');
+        document.getElementById(selection) .classList.add('text-white');
     }
 }
