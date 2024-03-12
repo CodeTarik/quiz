@@ -52,17 +52,24 @@ function init() {
 }
 
 function showQuestion() {
+
+    if(currentQuestion >= questions.length){
+
+    }else{
+
     let question = questions[currentQuestion];
+
+    document.getElementById('change-number').innerHTML = currentQuestion+1;
 
     document.getElementById('questiontext').innerHTML = question['question'];
     document.getElementById('answer_1').innerHTML = question['answer_1'];
     document.getElementById('answer_2').innerHTML = question['answer_2'];
     document.getElementById('answer_3').innerHTML = question['answer_3'];
     document.getElementById('answer_4').innerHTML = question['answer_4'];
+    }
 }
 
 function answer(selection) {
-    
 
     let question = questions[currentQuestion]; //
     console.log('Selected answer is', selection) //
@@ -75,15 +82,36 @@ function answer(selection) {
     if(selectedQuestionNumber == question['right_answer']) { //
         console.log('Richtige Antwort') //
         document.getElementById(selection) .parentNode.classList.add('bg-success');
-        document.getElementById(selection) .classList.add('text-white');
+        
         
     } else {
         console.log('Falsche Antwort!!') //
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(idOfRoghtAnswer).parentNode.classList.add('bg-success')
-        document.getElementById(selection) .parentNode.classList.add('text-white');
+        //document.getElementById(selection) .parentNode.classList.add('text-white');
     }
 
     document.getElementById('next-button').disabled = false;
+}
+
+function nextQuestion() {
+    currentQuestion++; // von 0 auf 1 die globale Variable
+    resetAnswer();
+    showQuestion(); // 
+
+    document.getElementById('next-button').disabled = true;
+
+    
+}
+
+function resetAnswer() {
+    document.getElementById('answer_1').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_1').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-success'); 
 }
 
