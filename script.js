@@ -83,5 +83,7 @@ function answer(selection) {
         document.getElementById(idOfRoghtAnswer).parentNode.classList.add('bg-success')
         document.getElementById(selection) .parentNode.classList.add('text-white');
     }
+
+    //document.getElementById('next-button').disabled = false;
 }
 
