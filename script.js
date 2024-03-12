@@ -84,6 +84,6 @@ function answer(selection) {
         document.getElementById(selection) .parentNode.classList.add('text-white');
     }
 
-    //document.getElementById('next-button').disabled = false;
+    document.getElementById('next-button').disabled = false;
 }
 
