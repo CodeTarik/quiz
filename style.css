@@ -22,7 +22,7 @@ body {
     align-items: center;
 }
 
-.container-fluid {}
+
 
 .card {
     padding: 12px;
@@ -46,7 +46,6 @@ body {
 .card-text {
     font-size: 18px;
     font-weight: 400;
-    text-decoration: underline;
 }
 
 .list-group {
@@ -105,6 +104,3 @@ p {
     font-weight: bold;
 }
 
-.bg-success {
-    color: white;
-}
