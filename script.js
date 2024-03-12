@@ -70,14 +70,18 @@ function answer(selection) {
     console.log('SelectedQuestionNumber is', selectedQuestionNumber); // wird in der Konsole angezeigt
     console.log('Current questiion is ', question['right_answer']); //
 
+    let idOfRoghtAnswer = `answer_${question['right_answer']}`;
+
     if(selectedQuestionNumber == question['right_answer']) { //
         console.log('Richtige Antwort') //
-        document.getElementById(selection) .classList.add('bg-success');
+        document.getElementById(selection) .parentNode.classList.add('bg-success');
         document.getElementById(selection) .classList.add('text-white');
         
     } else {
         console.log('Falsche Antwort!!') //
-        document.getElementById(selection).classList.add('bg-danger');
-        document.getElementById(selection).classList.add('text-white');
+        document.getElementById(selection).parentNode.classList.add('bg-danger');
+        document.getElementById(idOfRoghtAnswer).parentNode.classList.add('bg-success')
+        document.getElementById(selection) .parentNode.classList.add('text-white');
     }
 }
+
