@@ -39,10 +39,14 @@
         <div class="card">
             <img src="./img/quiz-card.jpg" class="card-img-top rounded-circle">
 
-            <div class="card-body">
+            <div id="endScreen" style="display: none;" class="card-body">
+                Quiz beendet !
+            </div>
+
+            <div id="body" class="card-body">
                 <h5 class="card-title" id="questiontext">Frage</h5>
                 
-            </div>
+            
 
             <div class="card mb-2 border-5 border-danger quiz-answer"  onclick="answer('answer_1')">
                 <div class="card-body" id="answer_1">
@@ -67,6 +71,9 @@
                     Antwort
                 </div>
             </div>
+
+            </div>
+        
 
             <div class="question-footer mt-5">
                 <span>
