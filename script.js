@@ -43,6 +43,7 @@ let questions = [
     },
 ];
 
+let rightQuestions = 0;
 let currentQuestion = 0;
 
 function init() {
@@ -58,6 +59,8 @@ function showQuestion() {
         document.getElementById('endScreen').style = '';
         document.getElementById('body').style = 'display: none';
 
+        document.getElementById('amount-of-question').innerHTML = questions.length; // die Länge über JSON eingefügt
+        document.getElementById('amount-of-right-question').innerHTML = rightQuestions; // die Anzahl der richtigen Antworten
     }else{
 
     let question = questions[currentQuestion];
@@ -82,10 +85,10 @@ function answer(selection) {
 
     let idOfRoghtAnswer = `answer_${question['right_answer']}`;
 
-    if(selectedQuestionNumber == question['right_answer']) { //
+    if(selectedQuestionNumber == question['right_answer']) { //die richtige Frage beantwortet
         console.log('Richtige Antwort') //
         document.getElementById(selection) .parentNode.classList.add('bg-success');
-        
+        rightQuestions ++; // Zahl um eine Stelle nach oben; -- um eins verringert
 
     } else {
         console.log('Falsche Antwort!!') //
