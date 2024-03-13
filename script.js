@@ -55,6 +55,9 @@ function showQuestion() {
 
     if(currentQuestion >= questions.length){
 
+        document.getElementById('endScreen').style = '';
+        document.getElementById('body').style = 'display: none';
+
     }else{
 
     let question = questions[currentQuestion];
@@ -83,7 +86,7 @@ function answer(selection) {
         console.log('Richtige Antwort') //
         document.getElementById(selection) .parentNode.classList.add('bg-success');
         
-        
+
     } else {
         console.log('Falsche Antwort!!') //
         document.getElementById(selection).parentNode.classList.add('bg-danger');
