@@ -61,6 +61,7 @@ function showQuestion() {
 
         document.getElementById('amount-of-question').innerHTML = questions.length; // die Länge über JSON eingefügt
         document.getElementById('amount-of-right-question').innerHTML = rightQuestions; // die Anzahl der richtigen Antworten
+        document.getElementById('header-image').src = '/img/trophy.png';
     }else{
 
     let question = questions[currentQuestion];
