@@ -55,18 +55,26 @@ function init() {
 function showQuestion() {
 
     if(currentQuestion >= questions.length){
-
+        // show end screen
         document.getElementById('endScreen').style = '';
         document.getElementById('body').style = 'display: none';
 
         document.getElementById('amount-of-question').innerHTML = questions.length; // die Länge über JSON eingefügt
         document.getElementById('amount-of-right-question').innerHTML = rightQuestions; // die Anzahl der richtigen Antworten
         document.getElementById('header-image').src = '/img/trophy.png';
-    }else{
+    }else{ // show question
+
+    // Porgress Bar Status
+    let percent = (currentQuestion +=1)  / questions.length * 100;
+    percent = Math.round(percent); 
+    document.getElementById('progress-bar').innerHTML = `${percent}%`;
+    document.getElementById('progress-bar').style = `width: ${percent}%`;
+
+    console.log('Fortschhritt:', percent);
 
     let question = questions[currentQuestion];
 
-    document.getElementById('change-number').innerHTML = currentQuestion+1;
+    document.getElementById('change-number').innerHTML = currentQuestion + 1;
 
     document.getElementById('questiontext').innerHTML = question['question'];
     document.getElementById('answer_1').innerHTML = question['answer_1'];
