@@ -45,6 +45,8 @@ let questions = [
 
 let rightQuestions = 0;
 let currentQuestion = 0;
+let AUDIO_SUCCES = new Audio('audio/success.mp3');
+let AUDIO_FAIL = new Audio('audio/wrong.mp3');
 
 function init() {
     document.getElementById('dynamic').innerHTML = questions.length;
@@ -54,34 +56,17 @@ function init() {
 
 function showQuestion() {
 
-    if(currentQuestion >= questions.length){
-        // show end screen
-        document.getElementById('endScreen').style = '';
-        document.getElementById('body').style = 'display: none';
-
-        document.getElementById('amount-of-question').innerHTML = questions.length; // die Länge über JSON eingefügt
-        document.getElementById('amount-of-right-question').innerHTML = rightQuestions; // die Anzahl der richtigen Antworten
-        document.getElementById('header-image').src = '/img/trophy.png';
-    }else{ // show question
-
-    // Progress Bar Status
-    let percent = (currentQuestion +1)  / questions.length * 100;
-    percent = Math.round(percent); 
-    document.getElementById('progress-bar').innerHTML = `${percent}%`;
-    document.getElementById('progress-bar').style = `width: ${percent}%`;
-
-    console.log('Fortschhritt:', percent);
-3
-    let question = questions[currentQuestion];
-
-    document.getElementById('change-number').innerHTML = currentQuestion + 1;
-
-    document.getElementById('questiontext').innerHTML = question['question'];
-    document.getElementById('answer_1').innerHTML = question['answer_1'];
-    document.getElementById('answer_2').innerHTML = question['answer_2'];
-    document.getElementById('answer_3').innerHTML = question['answer_3'];
-    document.getElementById('answer_4').innerHTML = question['answer_4'];
+    if(gameIsOver()){ //sihe Zeile 68
+    showEndScreen(); // Siehe Zeile 125
+    }else{ 
+    updateToProgress(); // siehe Zeile 135
+    updateNextQuestion(); // siehe Zeile 142
+    
     }
+}
+
+function gameIsOver(){
+    return currentQuestion >= questions.length;
 }
 
 function answer(selection) {
@@ -92,21 +77,27 @@ function answer(selection) {
     console.log('SelectedQuestionNumber is', selectedQuestionNumber); // wird in der Konsole angezeigt
     console.log('Current questiion is ', question['right_answer']); //
 
-    let idOfRoghtAnswer = `answer_${question['right_answer']}`;
+    let idOfRightAnswer = `answer_${question['right_answer']}`;
 
-    if(selectedQuestionNumber == question['right_answer']) { //die richtige Frage beantwortet
+    if(questionNumber(selectedQuestionNumber)) {  // siehe Zeile 99
         console.log('Richtige Antwort') //
         document.getElementById(selection) .parentNode.classList.add('bg-success');
+        AUDIO_SUCCES.play();
         rightQuestions ++; // Zahl um eine Stelle nach oben; -- um eins verringert
 
     } else {
         console.log('Falsche Antwort!!') //
         document.getElementById(selection).parentNode.classList.add('bg-danger');
-        document.getElementById(idOfRoghtAnswer).parentNode.classList.add('bg-success')
-        //document.getElementById(selection) .parentNode.classList.add('text-white');
+        document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success')//document.getElementById(selection) .parentNode.classList.add('text-white');
+        AUDIO_FAIL.play();
     }
 
+
     document.getElementById('next-button').disabled = false;
+}
+
+function questionNumber(question, selectedQuestionNumber){
+    return selectedQuestionNumber == question['right_answer'];
 }
 
 function nextQuestion() {
@@ -138,4 +129,36 @@ function restartOfGame(){
     rightQuestions =  0; // die Variable wird hier überschrieben
     currentQuestion = 0; // die Variable wird hier überschrieben
     init();
+}
+
+function showEndScreen(){
+    document.getElementById('endScreen').style = '';
+    document.getElementById('body').style = 'display: none';
+
+    document.getElementById('amount-of-question').innerHTML = questions.length; // die Länge über JSON eingefügt
+    document.getElementById('amount-of-right-question').innerHTML = rightQuestions; // die Anzahl der richtigen Antworten
+    document.getElementById('header-image').src = '/img/trophy.png';
+}
+
+function updateToProgress(){
+    let percent = (currentQuestion +1)  / questions.length * 100;
+    percent = Math.round(percent); 
+
+    document.getElementById('progress-bar').innerHTML = `${percent}%`;
+    document.getElementById('progress-bar').style = `width: ${percent}%`;
+}
+
+function updateNextQuestion(){
+
+
+    let question = questions[currentQuestion];
+
+    document.getElementById('change-number').innerHTML = currentQuestion + 1;
+
+    document.getElementById('questiontext').innerHTML = question['question'];
+    document.getElementById('answer_1').innerHTML = question['answer_1'];
+    document.getElementById('answer_2').innerHTML = question['answer_2'];
+    document.getElementById('answer_3').innerHTML = question['answer_3'];
+    document.getElementById('answer_4').innerHTML = question['answer_4'];
+
 }
