@@ -64,14 +64,14 @@ function showQuestion() {
         document.getElementById('header-image').src = '/img/trophy.png';
     }else{ // show question
 
-    // Porgress Bar Status
-    let percent = (currentQuestion +=1)  / questions.length * 100;
+    // Progress Bar Status
+    let percent = (currentQuestion +1)  / questions.length * 100;
     percent = Math.round(percent); 
     document.getElementById('progress-bar').innerHTML = `${percent}%`;
     document.getElementById('progress-bar').style = `width: ${percent}%`;
 
     console.log('Fortschhritt:', percent);
-
+3
     let question = questions[currentQuestion];
 
     document.getElementById('change-number').innerHTML = currentQuestion + 1;
@@ -130,3 +130,12 @@ function resetAnswer() {
     document.getElementById('answer_4').parentNode.classList.remove('bg-success'); 
 }
 
+function restartOfGame(){
+    document.getElementById('header-image').src = 'img/quiz-card.jpg'; // austausch der Image auf dem Endscreen
+    document.getElementById('body').style = ''; // 'body' wieder anzeigen
+    document.getElementById('endScreen').style = 'display: none'; // Endscreen ausblenden
+
+    rightQuestions =  0; // die Variable wird hier überschrieben
+    currentQuestion = 0; // die Variable wird hier überschrieben
+    init();
+}
